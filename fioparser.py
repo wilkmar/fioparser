@@ -19,7 +19,8 @@ def process_results(series_file):
         _result = json.load(f)
 
     log.info(f"Processing file: {series_file}")
-    log.info(f"Time: {_result['time']}. Global options: {_result['global options']}")
+    log.info(f"Time: {_result['time']}. "
+             f"Global options: {_result['global options']}")
     _runtime = int(_result["global options"]["runtime"])
 
     for job in _result["jobs"]:
@@ -107,10 +108,12 @@ def get_series_files(series, directory):
 def main():
     parser = argparse.ArgumentParser(description='Proccess fio json results')
     parser.add_argument('series',
-                        help='combination of block size and rw/operation in fio, ie 4k_randread')
+                        help='combination of block size and rw/operation in '
+                             'fio, ie 4k_randread')
     parser.add_argument('-d', '--directory',
                         dest='directory',
-                        help='directory where the fio result json files are stored')
+                        help='directory where the fio result json files '
+                             'are stored')
     parser.add_argument('--debug', dest='debug',
                         action='store_true',
                         help='enable debug logging (default: False)')
@@ -120,7 +123,8 @@ def main():
         log.basicConfig(level=log.DEBUG)
     else:
         log.basicConfig(level=log.INFO)
-    log.debug(f"args: series={args.series} directory={args.directory} debug={args.debug}")
+    log.debug(f"args: series={args.series} directory={args.directory} "
+              f"debug={args.debug}")
 
     start_http_server(8088)
     series_files = get_series_files(args.series, args.directory)
