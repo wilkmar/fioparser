@@ -1,13 +1,15 @@
-- job_name: fioparser
-  honor_timestamps: true
-  scrape_interval: 15s
-  scrape_timeout: 15s
-  metrics_path: /metrics
-  scheme: http
-  follow_redirects: true
-  static_configs:
-  - targets:
-    - 10.5.1.45:8088
-    labels:
-      #dns_name: juju-0f8833-woodpecker-1.cloud.sts
-      group: promoagents-juju
+prometheus:
+  scrape-jobs: |2
+    - job_name: fioparser
+      honor_timestamps: true
+      scrape_interval: 15s
+      scrape_timeout: 15s
+      metrics_path: /metrics
+      scheme: http
+      follow_redirects: true
+      static_configs:
+      - targets:
+        - 10.5.1.45:8088
+        labels:
+          #dns_name: juju-0f8833-woodpecker-1.cloud.sts
+          group: promoagents-juju
