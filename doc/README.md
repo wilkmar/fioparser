@@ -21,3 +21,9 @@ Run following command
 juju config prometheus --file postprocessing/fioparser_target.yaml
 ```
 
+## Parsing results
+
+```
+. venv/bin/activate
+python fioparser.py -d ~/fio_out/PROD3 4k_write
+```
