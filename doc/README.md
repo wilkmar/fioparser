@@ -12,6 +12,9 @@ Getting graphana password:
 ```
 juju run-action grafana/0 get-login-info --wait
 ```
+
+Add following [dashboard](https://raw.githubusercontent.com/openstack-charmers/openstack-performance-testing/master/grafana/Woodpecker.json) to grafana
+
 ## Adding Prometheus target
 
 Set proper IP address and port in `fioparser_target.yaml`
